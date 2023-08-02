@@ -28,6 +28,9 @@ const verifyToken = async (ctx, next) => {
     const publicKey = fs.readFileSync("src/key/public.key")
     //获取token
     const authorization = ctx.headers.authorization
+    if (!authorization) {
+        return ctx.app.emit("error", "unauthorization", ctx)
+    }
     const token = authorization.split(" ")[1]
     // const token = authorizetion.replace("Bearer ", "")
     //验证token是否是有效
