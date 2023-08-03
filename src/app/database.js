@@ -6,7 +6,8 @@ const connectionPool = mysql.createPool({
     database: 'heyme.apply.backend',
     user: 'root',
     password: '123456',
-    connectionLimit: 5
+    connectionLimit: 10,
+    charset: 'utf8mb4'
 })
 // 2.获取连接是否成功
 connectionPool.getConnection((err, connection) => {

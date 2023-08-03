@@ -24,6 +24,10 @@ app.on("error", (error, ctx) => {
             code = -1005
             message = "权限不足"
             break
+        case "operation_is_not_allowed":
+            code = -1006
+            message = "操作不允许"
+            break
     }
     ctx.body = { code, message }
 })
