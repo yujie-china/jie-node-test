@@ -26,7 +26,7 @@ app.on("error", (error, ctx) => {
             break
         case "operation_is_not_allowed":
             code = -1006
-            message = "操作不允许"
+            message = "没有操作改资源的权限"
             break
     }
     ctx.body = { code, message }
