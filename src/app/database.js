@@ -3,7 +3,7 @@ const mysql = require('mysql2');
 const connectionPool = mysql.createPool({
     host: 'localhost',
     port: 3306,
-    database: 'heyme.apply.backend',
+    database: 'heyme_apply_backend',
     user: 'root',
     password: '123456',
     connectionLimit: 10,

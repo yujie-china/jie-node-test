@@ -10,5 +10,8 @@ const userRouter = new Router({ prefix: '/users' });
 //定义路由中映射
 userRouter.post("/", verifyUser, UserController.create)
 
+//用户提供头像
+userRouter.get("/avatar/:userid", UserController.showAvatarImage)
+
 //导出路由
 module.exports = userRouter;

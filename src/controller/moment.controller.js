@@ -56,6 +56,33 @@ class MomentController {
             data: result
         }
     }
+    //为moment添加labels
+    async addLabels (ctx, next) {
+        //  1.拿到labels
+        const { labels } = ctx
+        const { momentid } = ctx.params
+        // 2.将moment_id和label_id添加到关系表中
+        try {
+            for (const label of labels) {
+                // 2.1判断他们的关系是否已经放在关系表中了
+                const isExists = await momentService.hasLabel(momentid, label.id)
+                if (!isExists) {
+                    // 2.2如果不存在就存入数据库
+                    const result = await momentService.addLabel(momentid, label.id)
+                }
+            }
+            ctx.body = {
+                code: 0,
+                message: "添加成功"
+            }
+        } catch (error) {
+            ctx.body = {
+                code: -3001,
+                message: "添加失败"
+
+            }
+        }
+    }
 
 
 }

@@ -28,6 +28,10 @@ app.on("error", (error, ctx) => {
             code = -1006
             message = "没有操作改资源的权限"
             break
+        case "Label_already_exists":
+            code = -1007
+            message = "标签已存在"
+            break
     }
     ctx.body = { code, message }
 })
